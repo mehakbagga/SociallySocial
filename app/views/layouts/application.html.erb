@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SociallySocial</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3501/3501134.png">
+
+    <script src="https://kit.fontawesome.com/bf458aa6dd.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <%= render 'layouts/user_navbar' %>
+    <% else %>
+      <%= render 'layouts/public_navbar' %>
+    <% end %>
+
+    <div class='default-bg'>
+      <div class='container vh-90'>
+        <div class='row h-100'>
+          <div class='col-12 text-center'>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
